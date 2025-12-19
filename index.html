@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -13,22 +12,13 @@
     body {
       font-family: 'IBM Plex Sans Arabic', sans-serif;
       background-color: #f8fafc;
+      margin: 0;
+      padding: 0;
     }
     
     @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes dotPulse {
-      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-      30% { transform: translateY(-4px); opacity: 1; }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .message-appear {
@@ -45,28 +35,27 @@
       animation: dotPulse 1.2s infinite ease-in-out;
     }
 
-    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-    .text-reveal {
-      overflow: hidden;
-      white-space: pre-wrap;
+    @keyframes dotPulse {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-4px); opacity: 1; }
     }
   </style>
 <script type="importmap">
 {
   "imports": {
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
     "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-    "vite": "https://esm.sh/vite@^7.3.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 </head>
 <body>
   <div id="root"></div>
+  <!-- هذا هو السطر الأهم الذي كان ينقصك لتشغيل التطبيق -->
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
